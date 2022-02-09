@@ -452,6 +452,12 @@ module Twilio
               end
               @instance_context
             end
+            
+            ##
+            # @return [Hash] message properties
+            def properties
+              @properties
+            end
 
             ##
             # @return [String] The message text
@@ -625,6 +631,12 @@ module Twilio
               values = @properties.map{|k, v| "#{k}: #{v}"}.join(" ")
               "<Twilio.Api.V2010.MessageInstance #{values}>"
             end
+            
+            ##
+            # @return message properties as json
+            def to_json
+              properties.to_json
+            end 
           end
         end
       end
